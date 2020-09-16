@@ -75,3 +75,19 @@ fabric.properties
 
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
+
+# Visual Studio Code Folder
+.vscode/
+
+# thirdparty source
+thirdparty/
+
+# cmake output folders
+lib/
+bin/
+
+*.gch
+*.o
+
+# cmake build files
+build/
