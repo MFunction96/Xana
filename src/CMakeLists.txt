@@ -11,14 +11,14 @@ add_library(XShell SHARED "${XSHELL_SOURCE}")
 add_dependencies(XShell Xana)
 
 target_include_directories(XShell
-        PUBLIC "${PROJECT_INCLUDE_DIRECTORY}"
-        PUBLIC "${Boost_INCLUDE_DIRS}")
+		PUBLIC "${PROJECT_INCLUDE_DIRECTORY}"
+		PUBLIC "${Boost_INCLUDE_DIRS}")
 
 target_link_directories(XShell
-        PRIVATE "${PROJECT_LIBRARY_DIRECTORY}"
-        PUBLIC "${Boost_LIBRARY_DIRS}")
+		PRIVATE "${PROJECT_LIBRARY_DIRECTORY}"
+		PUBLIC "${Boost_LIBRARY_DIRS}")
 
 target_link_libraries(XShell
-        PRIVATE Xana
-        )
+		PRIVATE Xana
+		)
 

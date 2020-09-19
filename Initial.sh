@@ -1,6 +1,6 @@
 #!/bin/sh
 # Declare global variant
-PROJECT_DIR=`pwd`
+PROJECT_DIR="$(cd "$(dirname "$0")" && pwd)"
 THIRD_PARTY_DIR="${PROJECT_DIR}/thirdparty"
 STAGE_INFO='\e[1;36m'
 NORMAL_INFO='\e[0m'
