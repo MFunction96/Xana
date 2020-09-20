@@ -1,16 +1,29 @@
-cmake_minimum_required(VERSION 3.15.0)
+cmake_minimum_required(VERSION 3.17.3)
 
 project(Xana LANGUAGES C CXX VERSION 1.0.0)
 
-aux_source_directory("${PROJECT_SOURCE_DIR}" XANA_SOURCE)
+############################# Configure Xana Source #############################
 
-add_library(Xana STATIC "${XANA_SOURCE}")
+aux_source_directory("${PROJECT_SOURCE_DIR}/XBase" XANA_XBASE_SOURCE)
+aux_source_directory("${PROJECT_SOURCE_DIR}/XCore" XANA_XCORE_SOURCE)
+
+add_library(Xana STATIC "${PROJECT_SOURCE_DIR}/Xana.cpp" "${XANA_XBASE_SOURCE}" "${XANA_XCORE_SOURCE}")
 
 target_include_directories(Xana
-		PRIVATE "${PROJECT_INCLUDE_DIRECTORY}"
-		PRIVATE "${OPENSSL_INCLUDE_DIR}")
+		PUBLIC "${PROJECT_INCLUDE_DIRECTORY}"
+		PUBLIC "${OPENSSL_INCLUDE_DIR}")
 
 target_link_directories(Xana
-		PRIVATE "${PROJECT_LIBRARY_DIRECTORY}"
-		PRIVATE "${OPENSSL_LIBRARIES}")
+		PUBLIC "${PROJECT_LIBRARY_DIRECTORY}"
+		PUBLIC "${OPENSSL_LIBRARIES}")
 
+########################### Configure XanaTest Source ###########################
+
+aux_source_directory("${PROJECT_SOURCE_DIR}/test" XANA_TEST_SOURCE)
+
+add_executable(XanaTest "${XANA_TEST_SOURCE}")
+
+add_dependencies(XanaTest Xana)
+
+target_link_libraries(XanaTest
+		PRIVATE Xana)
