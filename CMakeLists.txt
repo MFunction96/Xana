@@ -1,4 +1,5 @@
-cmake_minimum_required(VERSION 3.15.0)
+cmake_minimum_required(VERSION 3.17.3)
+
 project(Xana LANGUAGES C CXX VERSION 0.1.0)
 
 # Set Debug Signal
