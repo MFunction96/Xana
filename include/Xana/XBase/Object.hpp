@@ -19,6 +19,8 @@ namespace Xana {
 			virtual std::string &GetHashCode() const = 0;
 
 			virtual std::string &ToString() const = 0;
+
+			virtual bool Equals(boost::shared_ptr<Object> obj) const = 0;
 		};
 	}
 }
