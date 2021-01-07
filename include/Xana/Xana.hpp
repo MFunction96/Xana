@@ -5,7 +5,7 @@
 #ifndef _XANA_H_
 #define _XANA_H_
 
-#include "Xana/XBase/XBase.hpp"
-#include "Xana/XCore/XCore.hpp"
+#include "Xana/Object.hpp"
+#include "Xana/String.hpp"
 
 #endif //_XANA_H_
